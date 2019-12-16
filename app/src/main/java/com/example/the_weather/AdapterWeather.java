@@ -19,10 +19,20 @@ import java.util.ArrayList;
 
 public class AdapterWeather extends RecyclerView.Adapter<AdapterWeather.WeatherViewHolder>{
     private ArrayList<Weather> weatherList;
+    private OnItemClickListener clickListener ;
 
     public AdapterWeather(ArrayList<Weather> weatherList) {
         this.weatherList= weatherList;
     }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        clickListener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+    
 
     @NonNull
     @Override
@@ -45,6 +55,7 @@ public class AdapterWeather extends RecyclerView.Adapter<AdapterWeather.WeatherV
         String url = "https://openweathermap.org/img/wn/"+weatherList.get(position).getIcon()+"@2x.png";
         Picasso.get().load(url).into(holder.icon);
 
+
     }
 
     @Override
@@ -64,6 +75,18 @@ public class AdapterWeather extends RecyclerView.Adapter<AdapterWeather.WeatherV
             temperature = itemView.findViewById(R.id.tv_temperature);
             icon = itemView.findViewById(R.id.iv_icon);
             description = itemView.findViewById(R.id.tv_description);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (clickListener!= null){
+                        int position = getAdapterPosition();
+                        if(position!= RecyclerView.NO_POSITION){
+                            clickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
