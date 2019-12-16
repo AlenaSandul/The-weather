@@ -2,17 +2,17 @@ package com.example.the_weather;
 
 
 public class Weather {
-    private double temperature;
+    private int temperature;
     private String cityName;
     private String icon;
     private String description;
     private int idCity;
 
-    public double getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 

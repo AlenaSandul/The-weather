@@ -56,6 +56,7 @@ public class AdapterWeather extends RecyclerView.Adapter<AdapterWeather.WeatherV
         Picasso.get().load(url).into(holder.icon);
 
 
+
     }
 
     @Override

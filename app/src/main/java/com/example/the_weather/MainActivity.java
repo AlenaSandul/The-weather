@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements AdapterWeather.On
                     for (int i = 0; i < jsArray.length(); i++) {
                         JSONObject jsonSecondary = jsArray.getJSONObject(i);
                         JSONObject main = jsonSecondary.getJSONObject("main");
-                        double temperature = main.getDouble("temp");
+                        int temperature = main.getInt("temp");
                         String cityName = jsonSecondary.getString("name");
                         JSONArray weather = jsonSecondary.getJSONArray("weather");
                         JSONObject weatherAll = (JSONObject) weather.get(0);
