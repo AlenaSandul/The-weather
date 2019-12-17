@@ -40,11 +40,12 @@ public class AdapterDescriptionWeather extends RecyclerView.Adapter<AdapterDescr
         holder.cityName.setText(detailedWeathers.get(position).getCityName());
         holder.description.setText(detailedWeathers.get(position).getDescription());
         String url = "https://openweathermap.org/img/wn/"+detailedWeathers.get(position).getIcon()+"@2x.png";
+        holder.date.setText(detailedWeathers.get(position).getDate());
         Picasso.get().load(url).into(holder.icon);
         int temp = detailedWeathers.get(position).getTemperature();
         int hum  = detailedWeathers.get(position).getHumidity();
         double win = detailedWeathers.get(position).getWind();
-        holder.allDescription.setText("Темп: "+temp+" "+"Влажн: "+hum+" "+"Ветер: "+win+"м/с");
+        holder.allDescription.setText("Темп: "+temp+"     "+"Влажн: "+hum+"%"+"     "+"Ветер: "+win+"м/с");
 
 
     }

@@ -64,6 +64,7 @@ public class SecondActivity extends AppCompatActivity {
                         JSONObject city = jsonObject.getJSONObject("city");
                         String cityName = city.getString("name");
 
+
                         for (int i = 0; i <jsArray.length() ; i++) {
                             JSONObject secondJson = jsArray.getJSONObject(i);
                             JSONObject main = secondJson.getJSONObject("main");
@@ -76,12 +77,12 @@ public class SecondActivity extends AppCompatActivity {
                             JSONObject weatherAll = (JSONObject) weather.get(0);
                             String icon = weatherAll.getString("icon");
                             String description = weatherAll.getString("description");
+                            String date = secondJson.getString("dt_txt");
 
-                           String dt_txt = secondJson.getString("dt_txt");
 
                            DetailedWeather detailedWeather = new DetailedWeather();
                            detailedWeather.setCityName(cityName);
-                           detailedWeather.setDate(dt_txt);
+                           detailedWeather.setDate(date);
                            detailedWeather.setDescription(description);
                            detailedWeather.setHumidity(humidity);
                            detailedWeather.setTemperature((int) temperature);
