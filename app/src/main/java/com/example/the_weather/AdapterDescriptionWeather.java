@@ -45,7 +45,7 @@ public class AdapterDescriptionWeather extends RecyclerView.Adapter<AdapterDescr
         int temp = detailedWeathers.get(position).getTemperature();
         int hum  = detailedWeathers.get(position).getHumidity();
         double win = detailedWeathers.get(position).getWind();
-        holder.allDescription.setText("Темп: "+temp+"     "+"Влажн: "+hum+"%"+"     "+"Ветер: "+win+"м/с");
+        holder.allDescription.setText("Темп: "+temp+" C"+"     "+"Влажн: "+hum+"%"+"     "+"Ветер: "+win+"м/с");
 
 
     }

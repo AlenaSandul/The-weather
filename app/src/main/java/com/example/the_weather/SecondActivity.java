@@ -44,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent =  getIntent();
         int cityId = intent.getIntExtra("com.example.the_weather.cityId", 0);
         OkHttpClient client = new OkHttpClient();
-        final String url = "https://api.openweathermap.org/data/2.5/forecast?id="+cityId+"&appid=0d1aafb0e2b156451320ab72d07d2cd6";
+        final String url = "https://api.openweathermap.org/data/2.5/forecast?id="+cityId+"&units=metric&appid=0d1aafb0e2b156451320ab72d07d2cd6";
         Request request = new Request.Builder().
                 url(url).build();
         client.newCall(request).enqueue(new Callback() {
